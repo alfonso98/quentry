@@ -1,48 +1,70 @@
-import React from 'react';
+import Image from 'next/image';
 
 const Page = () => {
     return (
-        <div className="grid grid-cols-3 grid-rows-2 min-h-screen">
+        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 min-h-screen">
 
-            
             <div className="flex items-center justify-center bg-pink-200 p-4">
-            <div className="text-center">
-                <h1 className="text-4xl font-bold text-green-800">ICARUS</h1>
-                <p className="text-sm tracking-widest text-green-800">CAFÉ</p>
+                <Image
+                    src="/icarus_logo.png"
+                    width={817}
+                    height={358}
+                    alt="Icarús Café"
+                    className="h-24 md:h-28"
+                />
             </div>
-            </div>
-
+       
+            <div className="row-span-1 md:row-span-2 col-span-1 flex items-center justify-center relative p-4">
+                <Image
+                    src="/coffe_hero.png"
+                    width={527}
+                    height={531}
+                    alt="Taza de Café"
+                    className="rounded-full w-[300px] md:w-[400px] lg:w-[450px] object-cover shadow-xl"
+                />
+                <div className="absolute text-center text-white">
+                    <h2 className="text-2xl md:text-3xl font-bold">El Festival del Embudо</h2>
+                    <p className="mt-1 text-sm md:text-base">17 DE MAYO DE 2025</p>
             
-            <div className="row-span-2 col-span-1 flex items-center justify-center relative">
-            {/* <img src="YOUR_COFFEE_IMAGE_PATH.jpg" alt="Taza de Café" className="rounded-full w-[450px] h-[450px] object-cover shadow-xl"> */}
-            
-            
-            <div className="absolute text-center text-white">
-                <h2 className="text-2xl font-bold">El Festival del Embudо</h2>
-                <p className="mt-1 text-sm">17 DE MAYO DE 2025</p>
-                    <button className="mt-4 px-6 py-2 bg-green-700 hover:bg-green-800 text-white rounded-md shadow-lg text-lg">
+                    <button className="mt-4 px-5 py-2 bg-green-700 hover:bg-green-800 text-white rounded-md shadow-lg text-sm md:text-lg">
                     Comprar boletos
                     </button>
-                <p className="mt-2 text-xs italic">Cupo limitado a 150 personas</p>
-            </div>
-            </div>
-
             
-            <div className="flex items-center justify-center bg-red-600">
-            {/* <img src="YOUR_JAGUAR_IMAGE_PATH.png" alt="Jaguar" className="h-40"> */}
+                    <p className="mt-2 text-xs italic text-white">Cupo limitado a 150 personas</p>
+                </div>
+            </div>
+        
+            <div className="flex items-center justify-center bg-red-600 p-4">
+                <Image
+                    src="/erratio_logo.png"
+                    width={1098}
+                    height={860}
+                    alt="Erratio Café"
+                    className="h-28 md:h-40"
+                />
+            </div>
+        
+            <div className="flex items-center justify-center bg-white p-4">
+                <Image
+                    src="/barbo_logo.jpg"
+                    width={1170}
+                    height={596}
+                    alt="Barbo"
+                    className="h-12 md:h-16"
+                />
             </div>
 
-            
-            <div className="flex items-center justify-center bg-white">
-            {/* <img src="YOUR_BARBO_LOGO_PATH.png" alt="barbo" className="h-16"> */}
+            <div className="flex items-center justify-center bg-black p-4">
+                <Image
+                    src="/casa_logo.png"
+                    width={811}
+                    height={685}
+                    alt="Casa en Llamas"
+                    className="h-24 md:h-28"
+                />
             </div>
 
-            
-            <div className="flex items-center justify-center bg-black">
-            {/* <img src="YOUR_ORANGE_LOGO_PATH.png" alt="Fuego" className="h-28"> */}
-            </div>
-
-        </div>
+        </div>    
     );
 };
 
