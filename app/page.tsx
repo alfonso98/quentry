@@ -60,7 +60,7 @@ const Page = () => {
 
                 <div className={styles.cartelContainer}>
                     <Image
-                        src="/cartelFestival.png"
+                        src="/cartelFestival.PNG"
                         width={3858}
                         height={5950}
                         alt="Cartel del Festival del embudo"
