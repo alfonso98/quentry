@@ -1,20 +1,329 @@
 .mainContainer {
-    padding: 1rem;
+    padding: 1.5rem 0.5rem;
     background-color: #FFCF00;
     background-image: linear-gradient( 135deg, #FFCF00 20%, #A5C000 100%);
-    width: 100dvw;
-    height: 100dvh;
+    width: 99dvw;
 
     @media screen and (min-width: 40em) {
-        padding: 2rem;
+        padding: 1.5rem;
     }
+}
+
+.sectiontitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0.5rem 0rem;
+
+    @media screen and (min-width: 40em) {
+
+        font-size: 2rem;
+        font-weight: 600;
+    
+    }
+
 }
 
 .posterContainer {
     background-color: #fff;
-    padding: 2rem;
+    color: #4e504d;
+    padding: 1.5rem;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: 500;
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+
+    @media screen and (min-width: 40em) {
+        padding: 2.5rem;
+        gap: 4rem;
+        font-size: 1.5rem;
+    }
+
+}
+
+.logoContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.festivalLogo {
+
+    width: 100%;
+    height: 100%;
+    
+    @media screen and (min-width: 40em) {
+
+        width: 50%;
+        height: auto;
+
+    }
+}
+
+.festivalDate {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.locationLink a:hover {
+    color: #A5C000;
+    font-weight: 600;
+}
+
+.locationLink a:focus {
+    color: #A5C000;
+    font-weight: 600;
+}
+
+.cartelContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.festivalCartel {
+    width: 100%;
+    height: 100%;
+    
+    @media screen and (min-width: 40em) {
+
+        width: 80%;
+        height: auto;
+
+    }
+}
+
+.festivalEvents {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+
+    @media screen and (min-width: 40em) {
+
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        gap: 2.5rem;
+    
+    }
+
+}
+
+.eventCard {
+    text-align: left;
+
+    @media screen and (min-width: 40em) {
+
+        max-width: 25%;
+    
+    }
+}
+
+.festivalOrganizers {
+    padding-top: 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    @media screen and (min-width: 40em) {
+
+        width: 80%;
+    
+    }
+
+}
+
+.organizersList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    width: 100%;
+    height: 100%;
+
+    @media screen and (min-width: 40em) {
+        
+        flex-direction: row;
+        gap: 4rem;
+    
+    }
+}
+
+.organizerLogo {
+
+    width: 70%;
+
+    @media screen and (min-width: 40em) {
+
+        width: 25%;
+    
+    }
+}
+
+.organizerLogo:hover {
+
+    width: 72%;
+    cursor: pointer;
+
+    @media screen and (min-width: 40em) {
+
+        width: 27%;
+    
+    }
+}
+
+.organizerLogo:focus {
+
+    width: 72%;
+    cursor: pointer;
+
+    @media screen and (min-width: 40em) {
+
+        width: 27%;
+    
+    }
+}
+
+.festivalParticipants {
+    padding-top: 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    @media screen and (min-width: 40em) {
+
+        width: 80%;
+    
+    }
+}
+
+.festivalTickets {
+    padding-top: 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    @media screen and (min-width: 40em) {
+
+        width: 70%;
+    
+    }
+}
+
+.ticketCard {
+    width: 100%;
+    padding: 2rem;
+    border: #4e504d 3px solid;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (min-width: 40em) {
+
+        width: 70%;
+    
+    }
+}
+
+.ticketCard h2 {
+    font-size: 3rem;
+    font-weight: 600;
+
+    @media screen and (min-width: 40em) {
+
+        font-size: 6rem;
+    
+    }
+}
+
+.lineDivider{
+    border-bottom: #4e504d 2px solid;
+    padding-bottom: 1rem;
+    width: 100%;
+}
+
+.ticketCard ul {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+.mainCallToAction {
+    width: fit-content;
+    height: auto;
+    padding: 1.5rem;
+    margin: 1.5rem;
+    background-color: #FFCF00;
+    background-image: linear-gradient( 135deg, #FFCF00 20%, #A5C000 100%);
+    color: #4e504d;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+
+    @media screen and (min-width: 40em) {
+
+        font-size: 1.5rem;
+        margin: 2rem;
+    
+    }
+
+}
+
+.mainCallToAction:hover {
+    background-color: #A5C000;
+    background-image: linear-gradient( 135deg, #A5C000 20%, #FFCF00 100%);
+    color: #fff;
+    cursor: pointer;
+}
+
+.footerContainer {
+    padding-top: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footerContainer p:hover {
+    color: #A5C000;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.faqContainer ul > li {
+    margin-bottom: 10px; /* Adjust the spacing between list items */
+    padding: 5px; /* Add padding inside each list item */
 }
