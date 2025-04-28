@@ -1,0 +1,20 @@
+.mainContainer {
+    padding: 1rem;
+    background-color: #FFCF00;
+    background-image: linear-gradient( 135deg, #FFCF00 20%, #A5C000 100%);
+    width: 100dvw;
+    height: 100dvh;
+
+    @media screen and (min-width: 40em) {
+        padding: 2rem;
+    }
+}
+
+.posterContainer {
+    background-color: #fff;
+    padding: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    width: 100%;
+    height: 100%;
+}
