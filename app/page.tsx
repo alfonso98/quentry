@@ -170,7 +170,7 @@ const Page = () => {
 
                         <h2>$210</h2>
                         <p>Precio por persona</p>
-                        <p className={styles.lineDivider}>IVA Incluida</p>
+                        <p className={styles.lineDivider}>IVA Incluido</p>
 
 
                         <ul className={styles.lineDivider}>
