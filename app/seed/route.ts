@@ -1,7 +1,5 @@
-import bcrypt from 'bcrypt';
 import postgres from 'postgres';
-import { invoices, customers, revenue, users } from '../lib/placeholder-data';
-import { eventStatus, events, ticketStatus, ticket } from '../lib/quentryData';
+import { eventStatus, events, ticketStatus, ticket } from './quentryData';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
@@ -84,13 +82,24 @@ const seedTickets = async () => {
     );
   `;
 
+  let tickets = [];
+
+  for (let i = 0; i < 150; i++) {
+    tickets.push({
+      idEvent: 1,
+      ticketStatus: 1,
+      ticketType: `Bolto General | No. ${i+1}`,
+      ticketPrice: 250.00,
+    });
+  }
+
   const insertedTickets = await Promise.all(
-    Array.from({ length: 150 }).map((v, i) =>
-      sql`
+    tickets.map(
+      (tkt) => sql`
         INSERT INTO "tTickets" ("idEvent", "ticketStatus", "ticketType", "ticketPrice")
-        VALUES (${ticket.idEvent}, ${ticket.ticketStatus}, ${ticket.ticketType}-${i}, ${ticket.ticketPrice})
+        VALUES (${tkt.idEvent}, ${tkt.ticketStatus}, ${tkt.ticketType}, ${tkt.ticketPrice})
         ON CONFLICT ("idTicket") DO NOTHING;
-      `
+      `,
     )
   );
 

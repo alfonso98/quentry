@@ -42,12 +42,26 @@ const ticketStatus = [
 // ticketStatus: int References cTicketStatus
 // ticketType: varchar(255)
 // ticketPrice: decimal(10,2)
-const ticket = {
-    idEvent: 1,
-    ticketStatus: 1,
-    ticketType: 'Bolto General',
-    ticketPrice: 250.00
-};
+const ticket = [
+    {
+        idEvent: 1,
+        ticketStatus: 1,
+        ticketType: 'Bolto General | 001',
+        ticketPrice: 250.00
+    },
+    {
+        idEvent: 1,
+        ticketStatus: 1,
+        ticketType: 'Bolto General | 002',
+        ticketPrice: 250.00
+    },
+    {
+        idEvent: 1,
+        ticketStatus: 1,
+        ticketType: 'Bolto General | 003',
+        ticketPrice: 250.00
+    }
+];
 
 export { eventStatus, events, ticketStatus, ticket };
 
