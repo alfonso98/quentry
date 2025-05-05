@@ -6,11 +6,11 @@ import { useSearchParams } from 'next/navigation';
 
 export default function Page() {
 
-    const searchParams = useSearchParams();
-    const amount = searchParams.get('amount');
-    const paymentIntent = searchParams.get('payment_intent');
-    const clientSecret = searchParams.get('payment_intent_client_secret');
-    const redirectStatus = searchParams.get('redirect_status');
+    // const searchParams = useSearchParams();
+    // const amount = searchParams.get('amount');
+    // const paymentIntent = searchParams.get('payment_intent');
+    // const clientSecret = searchParams.get('payment_intent_client_secret');
+    // const redirectStatus = searchParams.get('redirect_status');
 
 
     return (<div>
