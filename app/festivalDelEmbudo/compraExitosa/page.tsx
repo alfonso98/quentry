@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from '@/app/ui/icarus/landing.module.css';
 
 export default function Page() {
-    return (<>
+    return (<div>
         <Stack direction='column' justifyContent='center' alignItems='center' spacing={2} >
             <h1>Gracias por tu compra!</h1>
             <p>Tu compra ha sido exitosa. Te esperamos en el festival!</p>
@@ -15,5 +15,5 @@ export default function Page() {
             </Link>
 
         </Stack>
-    </>);
+    </div>);
 }
