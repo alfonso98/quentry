@@ -65,16 +65,15 @@ const ticket = [
 
 export { eventStatus, events, ticketStatus, ticket };
 
-// tAttendees
-// idAttendee: Serial
-// attendeeFirstName: varchar(255)
-// attendeeLastName: varchar(255)
-// attendeeEmail: varchar(255)
-// attendePhone: varchar(255)
+// tBuyers
+// idBuyer: Serial
+// buyerName: varchar(255)
+// buyerLastName: varchar(255)
+// buyerEmail: varchar(255)
 
-// rAttendeTickets
-// idAttendeeTicket: Serial
-// idAttendee: Int References tAttendees
+// rBuyersTickets
+// idBuyerTicket: Serial
+// idBuyer: Int References tBuyers
 // idTicket: Int References tTickets
 // purchaseDate: timeStamp
 // totalAmount: decimal(10,2)

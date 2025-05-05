@@ -10,20 +10,19 @@ import Stack from '@mui/material/Stack';
 
 import TicketsInputStep from '../ui/icarus/TicketsInputStep';
 import BuyerInformationStep from '../ui/icarus/BuyerInfoStep';
-import StrippeStep from '../ui/icarus/StrippeStep';
+import StripeStep from '../ui/icarus/StripeStep';
 import FinishPurchaseStep from '../ui/icarus/FinishPurchaseStep';
-import { set } from 'zod';
 
 interface UserData {
-    id: number,
-    name: string,
-    lastName: string,
+    id: number;
+    name: string;
+    lastName: string;
     email: string;
 }
 
 export default function Page(){
 
-    const [activeStep, setActiveStep] = useState(0);
+    const [ activeStep, setActiveStep ] = useState(0);
     const [ steps, setSteps ] = useState([
         {
             label:'Selecciona tus boletos',
@@ -40,7 +39,7 @@ export default function Page(){
     ]);
 
     const [ quantityOfTickets, setQuantityOfTickets ] = useState(1);
-    const [ userData, setUserData ] = useState([{
+    const [ userData, setUserData ] = useState<UserData[]>([{
         id: 1,
         name: '',
         lastName: '',
@@ -92,16 +91,21 @@ export default function Page(){
         });
     };
 
-    const handleUserDataChange = (updatedUser: UserData): void => {
-        console.log('userData', updatedUser);
+    const handleUserDataChange = (index: number, event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
+
         setUserData((prevUserData) => {
-            const users = [...prevUserData];
-            users[updatedUser.id - 1] = updatedUser;
-            return users;
+            let aux = prevUserData;
+            aux[index] = {
+                ...prevUserData[index],
+                [event.target.name]: event.target.value,
+            };
+            return aux;
         });
+
     };
 
     const StepViewer = () => {
+        
         return (
             <>
 
@@ -115,13 +119,10 @@ export default function Page(){
             { activeStep === 1 ?
             <BuyerInformationStep
                 userData={userData}
-                retrieveData={handleUserDataChange}
+                handleDataChange={handleUserDataChange}
             /> : null }
 
-            { activeStep === 2 ?
-            <StrippeStep
-                userData={userData}
-            /> : null }
+            { activeStep === 2 ? <StripeStep userData={userData}/> : null }
 
             {/* <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography> */}
 
@@ -132,13 +133,13 @@ export default function Page(){
                     onClick={handleBack}
                     sx={{ mr: 1 }}
                 >
-                    Back
+                    Regresar
                 </Button>
 
                 <Box sx={{ flex: '1 1 auto' }} />
 
                 <Button onClick={handleNext}>
-                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                    {activeStep === steps.length - 1 ? 'Finalizar' : 'Siguiente'}
                 </Button>
 
             </Box>

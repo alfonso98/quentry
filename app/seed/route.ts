@@ -106,6 +106,36 @@ const seedTickets = async () => {
   return insertedTickets;
 };
 
+const createBuyersAndRelations = async () => {
+  try{
+
+    await sql`
+      CREATE TABLE IF NOT EXISTS "tBuyers" (
+        "idBuyer" SERIAL PRIMARY KEY,
+        "buyerName" VARCHAR(100) NOT NULL,
+        "buyerLastName" VARCHAR(200) NOT NULL,
+        "buyerEmail" VARCHAR(100) NOT NULL
+      );
+    `;
+
+    await sql`
+      CREATE TABLE IF NOT EXISTS "rBuyersTickets" (
+        "idBuyerTicket" SERIAL PRIMARY KEY,
+        "idBuyer" INT REFERENCES "tBuyers" ("idBuyer"),
+        "idTicket" INT REFERENCES "tTickets" ("idTicket"),
+        "purchaseDate" TIMESTAMP NOT NULL DEFAULT NOW(),
+        "totalAmount" DECIMAL(10,2) NOT NULL,
+        "purchaseReference" VARCHAR(200) NOT NULL,
+        "metaData" JSONB NOT NULL DEFAULT '{}'
+      );
+    `;
+
+  } catch (error) {
+    return error;
+  }
+
+  return true;
+};
 
 export async function GET() {
   try {
@@ -114,6 +144,7 @@ export async function GET() {
       // seedEvents(),
       // seedTicketStatus(),
       // seedTickets(),
+      // createBuyersAndRelations(),
     ]);
 
     return Response.json({ message: 'Database seeded successfully', result });

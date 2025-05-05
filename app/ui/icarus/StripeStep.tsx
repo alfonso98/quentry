@@ -5,13 +5,13 @@ interface UserData {
     email: string;
 }
 
-interface StrippeStepProps {
+interface StripeStepProps {
     userData: UserData[],
 }
 
-export default function StrippeStep({ userData }:StrippeStepProps) {
+export default function StripeStep({ userData }:StripeStepProps) {
     console.log(userData);
     return(<>
-        <h1>Strippe Integration</h1>
+        <h1>Stripe Integration</h1>
     </>);
 };
