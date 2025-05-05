@@ -158,11 +158,8 @@ export default function Page(){
     };
 
     return (
-        <div className={styles.mainContainer}>
-            
-            <div className={styles.posterContainer}>
-
-            <Stack justifyContent='center' alignItems='center' spacing={2}>
+        <>
+        <Stack justifyContent='center' alignItems='center' spacing={2}>
 
             <Stepper activeStep={activeStep} alternativeLabel className={styles.headStepper}>
                 {
@@ -182,10 +179,6 @@ export default function Page(){
                 handleReset={handleReset}
             /> : <StepViewer/> }
 
-            </Stack>
-
-            </div>
-
-        </div>
-    );
+        </Stack>
+        </>);
 };
