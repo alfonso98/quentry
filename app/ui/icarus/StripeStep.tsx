@@ -34,7 +34,7 @@ export default function StripeStep({ userData }:StripeStepProps) {
                 currency: 'mxn',
             }} 
         >
-            <CheckoutPage userData={userData} amount={userData.length*ticketPrice} />
+            <CheckoutPage amount={userData.length*ticketPrice} />
         </Elements>
     </div>);
 };
