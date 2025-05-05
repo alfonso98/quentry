@@ -1,11 +1,25 @@
 'use client';
+import styles from '@/app/ui/icarus/purchaseApp.module.css';
 import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
+
+import TicketsInputStep from '../ui/icarus/TicketsInputStep';
+import BuyerInformationStep from '../ui/icarus/BuyerInfoStep';
+import StrippeStep from '../ui/icarus/StrippeStep';
+import FinishPurchaseStep from '../ui/icarus/FinishPurchaseStep';
+import { set } from 'zod';
+
+interface UserData {
+    id: number,
+    name: string,
+    lastName: string,
+    email: string;
+}
 
 export default function Page(){
 
@@ -24,6 +38,14 @@ export default function Page(){
             completed: false
         },
     ]);
+
+    const [ quantityOfTickets, setQuantityOfTickets ] = useState(1);
+    const [ userData, setUserData ] = useState([{
+        id: 1,
+        name: '',
+        lastName: '',
+        email: ''
+    }]);
 
     const handleNext = () => {
         setSteps((prevSteps) => {
@@ -52,24 +74,56 @@ export default function Page(){
         });
     };
 
-    const FinishProccess = () => {
-        return (
-            <>
-                <Typography sx={{ mt: 2, mb: 1 }}>
-                    All steps completed - you're finished
-                </Typography>
-                <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                    <Box sx={{ flex: '1 1 auto' }} />
-                    <Button onClick={handleReset}>Reset</Button>
-                </Box>
-            </>
-        );
+    const addOneTicket = () => {
+        setQuantityOfTickets((prevQuantity) => prevQuantity + 1);
+        setUserData((prevUserData) => {
+            const newUserData = [...prevUserData];
+            newUserData.push({ id: prevUserData.length +1 ,name: '', lastName: '', email: '' });
+            return newUserData;
+        });
+    };
+
+    const removeOneTicket = () => {
+        setQuantityOfTickets((prevQuantity) => prevQuantity - 1);
+        setUserData((prevUserData) => {
+            const newUserData = [...prevUserData];
+            newUserData.pop();
+            return newUserData;
+        });
+    };
+
+    const handleUserDataChange = (updatedUser: UserData): void => {
+        console.log('userData', updatedUser);
+        setUserData((prevUserData) => {
+            const users = [...prevUserData];
+            users[updatedUser.id - 1] = updatedUser;
+            return users;
+        });
     };
 
     const StepViewer = () => {
         return (
             <>
-            <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
+
+            { activeStep === 0 ? 
+            <TicketsInputStep
+                quantityOfTickets={quantityOfTickets}
+                removeOneTicket={removeOneTicket}
+                addOneTicket={addOneTicket}
+            /> : null }
+
+            { activeStep === 1 ?
+            <BuyerInformationStep
+                userData={userData}
+                retrieveData={handleUserDataChange}
+            /> : null }
+
+            { activeStep === 2 ?
+            <StrippeStep
+                userData={userData}
+            /> : null }
+
+            {/* <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography> */}
 
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                 <Button
@@ -93,8 +147,11 @@ export default function Page(){
     };
 
     return (
-        <div>
-            <Box sx={{ width: '50%' }}>
+        <div className={styles.mainContainer}>
+            
+            <div className={styles.posterContainer}>
+
+            <Stack>
 
             <Stepper activeStep={activeStep} alternativeLabel>
                 {
@@ -109,9 +166,15 @@ export default function Page(){
                 }
             </Stepper>
 
-            { activeStep === steps.length ? <FinishProccess/> : <StepViewer/> }
+            { activeStep === steps.length ?
+            <FinishPurchaseStep
+                handleReset={handleReset}
+            /> : <StepViewer/> }
 
-            </Box>
+            </Stack>
+
+            </div>
+
         </div>
     );
 };

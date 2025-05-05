@@ -1,5 +1,5 @@
 import postgres from 'postgres';
-import { eventStatus, events, ticketStatus, ticket } from './quentryData';
+import { eventStatus, events, ticketStatus, ticket } from '../lib/quentryData';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
