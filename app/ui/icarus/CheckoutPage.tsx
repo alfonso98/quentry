@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { useStripe, useElements, PaymentElement } from '@stripe/react-stripe-js';
-import { UserData } from '@/app/lib/definitions';
 import styles from '@/app/ui/icarus/purchaseApp.module.css';
 
 interface CheckoutProps {
@@ -48,7 +47,8 @@ const CheckoutPage: React.FC<CheckoutProps> = ({ amount }) => {
             elements,
             clientSecret,
             confirmParams: {
-                return_url: `https://quentry.vercel.app/festivalDelEmbudo/compraExitosa?amount=${amount}`,
+                return_url: `${window.location.origin}/festivalDelEmbudo/compraExitosa?amount=${amount}`,
+                // return_url: `https://quentry.vercel.app/festivalDelEmbudo/compraExitosa?amount=${amount}`,
             },
         });
 

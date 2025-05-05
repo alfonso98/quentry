@@ -4,17 +4,12 @@ import styles from '@/app/ui/icarus/purchaseApp.module.css';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
-
-interface UserData {
-    id: number,
-    name: string,
-    lastName: string,
-    email: string;
-}
+import { UserData } from '@/app/lib/definitions';
 
 interface BuyerInformationProps {
     userData: UserData[],
-    handleDataChange: (index: number, event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void;
+    handleDataChange: (index: number, event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void,
+    errorMessage: string,
 }
 
 const InputName = ({ name, index, handlerInput }:{name:string, index:number, handlerInput:(index:number, event:React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>)=>void}) => {
@@ -87,7 +82,7 @@ const InputEmail = ({ email, index, handlerInput }:{email:string, index:number, 
 
 }
 
-export default function BuyerInformationStep({ userData, handleDataChange }:BuyerInformationProps) {
+export default function BuyerInformationStep({ userData, handleDataChange, errorMessage }:BuyerInformationProps) {
 
     return(<div className={styles.buyerInfoContainer}>
         <Stack spacing={2} direction="column" alignItems="stretch" justifyContent="flex-start">
@@ -116,6 +111,10 @@ export default function BuyerInformationStep({ userData, handleDataChange }:Buye
                         </div>
                     )
                 })}
+
+                
+                { errorMessage && <div className={styles.checkoutError}>{errorMessage}</div> }
+                
             </form>
 
         </Stack>
