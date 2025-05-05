@@ -1,8 +1,9 @@
 'use client';
 import { useState } from 'react';
+import styles from '@/app/ui/icarus/purchaseApp.module.css';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
-import InfoCard from './InfoCard';
+import TextField from '@mui/material/TextField';
 
 interface UserData {
     id: number,
@@ -26,8 +27,11 @@ const InputName = ({ name, index, handlerInput }:{name:string, index:number, han
     }
 
     return (<>
-        <input
+        <TextField
+            fullWidth
+            size="small"
             name='name'
+            label="Nombre(s)"
             placeholder='Nombre(s)'
             value={nameValue}
             onChange={handler}
@@ -46,8 +50,11 @@ const InputLastName = ({ lastName, index, handlerInput }:{lastName:string, index
     }
 
     return (<>
-        <input
+        <TextField
+            fullWidth
+            size="small"
             name='lastName'
+            label="Apellidos"
             placeholder='Apellidos'
             value={lastNameValue}
             onChange={handler}
@@ -66,8 +73,12 @@ const InputEmail = ({ email, index, handlerInput }:{email:string, index:number, 
     }
 
     return (<>
-        <input
+        <TextField
+            fullWidth
+            size="small"
             name='email'
+            label="Correo Electronico"
+            type='email'
             placeholder='Correo Electronico'
             value={emailValue}
             onChange={handler}
@@ -78,14 +89,15 @@ const InputEmail = ({ email, index, handlerInput }:{email:string, index:number, 
 
 export default function BuyerInformationStep({ userData, handleDataChange }:BuyerInformationProps) {
 
-    return(<div>
-        <Stack spacing={2} direction="column" alignItems="center" justifyContent="center">
+    return(<div className={styles.buyerInfoContainer}>
+        <Stack spacing={2} direction="column" alignItems="stretch" justifyContent="flex-start">
             <Typography variant="body1">Por favor proporciona los datos de los asistentes</Typography>
 
             <form>
                 {userData.map((user, index) => {
                     return (
-                        <div key={user.id}>
+                        <div key={user.id} className={styles.buyerInfoCard}>
+                            <p>Boleto { index + 1 } </p>
                             <InputName
                                 name={user.name}
                                 index={index}

@@ -46,7 +46,16 @@ export default function Page(){
         email: ''
     }]);
 
+    // const validateFields = () => {
+
+    // };
+
     const handleNext = () => {
+
+        // if( activeStep === 1 ){
+        //     validateFields();
+        // }
+
         setSteps((prevSteps) => {
             const newSteps = [...prevSteps];
             newSteps[activeStep].completed = true;
@@ -138,9 +147,10 @@ export default function Page(){
 
                 <Box sx={{ flex: '1 1 auto' }} />
 
-                <Button onClick={handleNext}>
+                { activeStep < 2 && <Button onClick={handleNext}>
                     {activeStep === steps.length - 1 ? 'Finalizar' : 'Siguiente'}
-                </Button>
+                </Button>}
+                
 
             </Box>
             </>
@@ -152,9 +162,9 @@ export default function Page(){
             
             <div className={styles.posterContainer}>
 
-            <Stack>
+            <Stack justifyContent='center' alignItems='center' spacing={2}>
 
-            <Stepper activeStep={activeStep} alternativeLabel>
+            <Stepper activeStep={activeStep} alternativeLabel className={styles.headStepper}>
                 {
                     steps.map( ( { label, completed } ) => {
 
