@@ -19,7 +19,7 @@ if( process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY === undefined ){
     throw new Error('Stripe public key is not defined in the environment variables.');
 }
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY as string);
+const stripePromise = loadStripe('pk_test_51RFgghCjIhYkh9XlmBcNmn1ESG9wmbvLQ8zJOPA3DdScMF13ixk9UPIaSzNzY2B7gurNqaMQ7l8szYpZzbiX0JgH009vlcn9AQ');
 
 export default function StripeStep({ userData }:StripeStepProps) {
     
