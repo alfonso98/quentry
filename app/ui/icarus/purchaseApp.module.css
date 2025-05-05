@@ -1,0 +1,102 @@
+.mainContainer {
+    padding: 1.5rem 0.5rem;
+    background-color: #FFCF00;
+    background-image: linear-gradient( 135deg, #FFCF00 20%, #A5C000 100%);
+    width: 99dvw;
+    height: auto;
+
+    @media screen and (min-width: 40em) {
+        padding: 1.5rem;
+    }
+}
+
+.posterContainer {
+    background-color: #fff;
+    color: #4e504d;
+    padding: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    width: 100%;
+    min-height: 91dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+
+    @media screen and (min-width: 40em) {
+        padding: 2.5rem;
+        gap: 4rem;
+        font-size: 1.5rem;
+    }
+
+}
+
+.buyerInfoCard {
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    padding: 0;
+    border-left: #A5C000 5px solid;
+    padding-left: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.3rem;
+}
+
+.buyerInfoCard > p {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.headStepper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 5rem;
+}
+
+.ticketInputContainer {
+    padding: 2rem 0;
+}
+
+.buyerInfoContainer {
+    width: 100%;
+    height: auto;
+}
+
+.stripeContainer {
+    width: 100%;
+    height: auto;
+    padding-top: 1.5rem;
+}
+
+.checkoutLoader {
+
+}
+
+.checkoutError {
+    width: 100%;
+    padding: 0.8rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #FF0000;
+}
+
+.checkoutPayButton {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0.5rem 0;
+    border-radius: 0.3rem;
+    background-color: #A5C000;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600    ;
+}

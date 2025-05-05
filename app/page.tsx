@@ -11,18 +11,29 @@ import Stack from '@mui/material/Stack';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import { DialogContent } from '@mui/material';
+import Link from 'next/link';
 
 const Page = () => {
 
-    const [open, setOpen] = useState(false);
+    const [dialog1, setDialog1] = useState(false);
+    const [dialog2, setDialog2] = useState(false);
 
-    const handleOpenDialog = () => {
-        setOpen(true);
-    }   
+    const handleOpenDialog1 = () => {
+        setDialog1(true);
+    }; 
 
-    const handleCloseDialog = () => {
-        setOpen(false);
+    const handleCloseDialog1 = () => {
+        setDialog1(false);
     };
+
+    const handleOpenDialog2 = () => {
+        setDialog2(true);
+    };
+
+    const handleCloseDialog2 = () => {
+        setDialog2(false);
+    };
+
 
     return (
         <div className={styles.mainContainer}>
@@ -52,10 +63,13 @@ const Page = () => {
                         </a>
                         
                     </h3>
-
-                    <a className={styles.mainCallToAction} href="#">
+                    
+                    <Link
+                        href='/festivalDelEmbudo'
+                        className={styles.mainCallToAction}
+                    >
                         ¡ Aparta tu lugar !
-                    </a>
+                    </Link>
                 </div>
 
                 <div className={styles.cartelContainer}>
@@ -182,22 +196,22 @@ const Page = () => {
 
                         <p>*Acceso limitado a 150 personas</p>
 
-                        <a className={styles.mainCallToAction} href="#">
+                        <Link className={styles.mainCallToAction} href="/festivalDelEmbudo">
                             ¡ Aparta tu lugar !
-                        </a>
+                        </Link>
 
                     </div>
 
                 </div>
 
                 <div className={styles.footerContainer}>
-                    <p onClick={handleOpenDialog}>FAQ's</p>
-                    <p>Contacto</p>
+                    <p onClick={handleOpenDialog1}>FAQ's</p>
+                    <p onClick={handleOpenDialog2}>Contacto</p>
                 </div>
                         
             </div>
 
-            <Dialog open={open} onClose={handleCloseDialog}>
+            <Dialog open={dialog1} onClose={handleCloseDialog1}>
                 <DialogTitle> Preguntas Frecuentes</DialogTitle>
                 <DialogContent>
 
@@ -239,6 +253,35 @@ const Page = () => {
                     </div>
                     
                 </DialogContent>
+            </Dialog>
+
+            <Dialog open={dialog2} onClose={handleCloseDialog2}>
+                <DialogTitle> Contacto</DialogTitle>
+
+                <DialogContent>
+
+                    <div className={styles.faqContainer}>
+
+                        <ul>
+
+                            <li>
+                                <b>
+                                    <a href="tel:+5213331009494">133 3100 9494</a>
+                                </b>
+                            </li>
+
+                            <li>
+                                <b>
+                                    <a href="mailto:isaac@icaruscafe.com?subject=Información%20|%20Festival%20del%Embudo">isaac@icaruscafe.com</a>
+                                </b>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </DialogContent>
+
             </Dialog>
             
         </div>    

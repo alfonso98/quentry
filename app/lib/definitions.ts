@@ -86,3 +86,10 @@ export type InvoiceForm = {
   amount: number;
   status: 'pending' | 'paid';
 };
+
+export interface UserData {
+  id: number,
+  name: string,
+  lastName: string,
+  email: string;
+}
