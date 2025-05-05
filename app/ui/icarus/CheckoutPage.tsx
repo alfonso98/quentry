@@ -48,7 +48,7 @@ const CheckoutPage: React.FC<CheckoutProps> = ({ amount }) => {
             elements,
             clientSecret,
             confirmParams: {
-                return_url: `http://localhost:3000/festivalDelEmbudo/success?amount=${amount}`,
+                return_url: `http://localhost:3000/festivalDelEmbudo/compraExitosa?amount=${amount}`,
             },
         });
 
