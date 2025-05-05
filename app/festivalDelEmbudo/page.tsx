@@ -12,13 +12,7 @@ import TicketsInputStep from '../ui/icarus/TicketsInputStep';
 import BuyerInformationStep from '../ui/icarus/BuyerInfoStep';
 import StripeStep from '../ui/icarus/StripeStep';
 import FinishPurchaseStep from '../ui/icarus/FinishPurchaseStep';
-
-interface UserData {
-    id: number;
-    name: string;
-    lastName: string;
-    email: string;
-}
+import { UserData } from '@/app/lib/definitions';
 
 export default function Page(){
 
@@ -45,16 +39,42 @@ export default function Page(){
         lastName: '',
         email: ''
     }]);
+    const [ dataError, setDataError ] = useState(false);
+    const [ errorMessage, setErrorMessage ] = useState('');
 
-    // const validateFields = () => {
+    const validateFields = () => {
 
-    // };
+        let hasError = false;
+
+        setErrorMessage('');
+        setDataError(false);
+
+        if( userData[0].email === '' ){
+            setDataError(true);
+            hasError = true;
+            setErrorMessage('Correo electronico requerido en el boleto 1');
+        }
+
+        userData.forEach((user) => {
+            if (user.name === '' || user.lastName === '') {
+                setDataError(true);
+                hasError = true;
+                setErrorMessage('Nombre y apellido son requeridos en todos los boletos');
+            }
+        });
+
+        return hasError
+
+    };
 
     const handleNext = () => {
 
-        // if( activeStep === 1 ){
-        //     validateFields();
-        // }
+
+        if( activeStep === 1 && validateFields() ){
+
+            return;
+            
+        }
 
         setSteps((prevSteps) => {
             const newSteps = [...prevSteps];
@@ -129,6 +149,7 @@ export default function Page(){
             <BuyerInformationStep
                 userData={userData}
                 handleDataChange={handleUserDataChange}
+                errorMessage={errorMessage}
             /> : null }
 
             { activeStep === 2 ? <StripeStep userData={userData}/> : null }
@@ -151,7 +172,6 @@ export default function Page(){
                     {activeStep === steps.length - 1 ? 'Finalizar' : 'Siguiente'}
                 </Button>}
                 
-
             </Box>
             </>
         );
@@ -180,5 +200,5 @@ export default function Page(){
             /> : <StepViewer/> }
 
         </Stack>
-        </>);
+    </>);
 };
