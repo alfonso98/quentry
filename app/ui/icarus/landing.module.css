@@ -168,30 +168,18 @@
     @media screen and (min-width: 40em) {
         
         flex-direction: row;
+        align-items: flex-end;
         gap: 4rem;
     
     }
 }
 
-.organizerLogo {
-
+.organizarLogoContainer {
     width: 70%;
 
     @media screen and (min-width: 40em) {
 
         width: 25%;
-    
-    }
-}
-
-.organizerLogo:hover {
-
-    width: 72%;
-    cursor: pointer;
-
-    @media screen and (min-width: 40em) {
-
-        width: 27%;
     
     }
 }

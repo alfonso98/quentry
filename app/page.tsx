@@ -12,6 +12,9 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import { DialogContent } from '@mui/material';
 import Link from 'next/link';
+import IconButton from '@mui/material/IconButton';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Page = () => {
 
@@ -51,7 +54,7 @@ const Page = () => {
                 </div>
 
                 <div className={styles.festivalDate}>
-                    <h3>17 de mayo de 2025 | 5.00 a 9.00 pm</h3>
+                    <h3>17 de mayo de 2025 | 5:00 pm a 9:00 pm</h3>
                     {/* <h3></h3> */}
                     <h3>
                         <a
@@ -86,12 +89,12 @@ const Page = () => {
 
                     <div className={styles.eventCard}>
                         <EmojiEventsIcon sx={{ fontSize: 40 }}/>
-                        <p>Especta y admira el Torneo del Método IKEA</p>
+                        <p>Especta y admira el Torneo del Método IKEA.</p>
                     </div>
 
                     <div className={styles.eventCard}>
                         <LocalCafeIcon sx={{ fontSize: 40 }}/>
-                        <p>Degusta café de 9 proyectos de café de especialidad de distintos estados del país</p>
+                        <p>Degusta 9 proyectos de café de especialidad de distintos estados del país.</p>
                     </div>
 
                     <div className={styles.eventCard}>
@@ -107,44 +110,59 @@ const Page = () => {
 
                     <div className={styles.organizersList}>
 
-                        <a 
-                            href='https://www.instagram.com/icaruscafe?igsh=MTFyYnpveDVzZHZnZQ=='
-                            target='_blank'
-                            className={styles.organizerLogo}
-                        >
-                        <Image
-                            src="/icarus.png"
-                            width={724}
-                            height={317}
-                            alt="Logo de Icarus Café"
-                        />
-                        </a>
+                        <div className={styles.organizarLogoContainer}>
+                            <Image
+                                src="/icarus.png"
+                                width={724}
+                                height={317}
+                                alt="Logo de Icarus Café"
+                            />
+                            <a 
+                                href='https://www.instagram.com/icaruscafe?igsh=MTFyYnpveDVzZHZnZQ=='
+                                target='_blank'
+                                className={styles.organizerLogo}
+                            >
+                                <IconButton>
+                                    <InstagramIcon/>
+                                </IconButton>
+                            </a>
+                        </div>
+
+                        <div className={styles.organizarLogoContainer}>
+                            <Image
+                                src="/barbo.png"
+                                width={815}
+                                height={292}
+                                alt="Logo de Barbo Café"
+                            />
+                            <a 
+                                href='https://www.instagram.com/barbo.coffee?igsh=MTQyZGwxZ3IzZXpudQ=='
+                                target='_blank'
+                                className={styles.organizerLogo}
+                            >
+                                <IconButton>
+                                    <InstagramIcon/>
+                                </IconButton>
+                            </a>
+                        </div>
                         
-                        <a
-                            href='https://www.instagram.com/barbo.coffee?igsh=MTQyZGwxZ3IzZXpudQ=='
-                            target='_blank'
-                            className={styles.organizerLogo}
-                        >
-                        <Image
-                            src="/barbo.png"
-                            width={815}
-                            height={292}
-                            alt="Logo de Barbo Café"
-                        />
-                        </a>
-                        
-                        <a
-                            href='https://www.instagram.com/erratio_cafe?igsh=OGxjdTA3ZmJ1MjM0'
-                            target='_blank'
-                            className={styles.organizerLogo}
-                        >
-                        <Image
-                            src="/eratio.png"
-                            width={679}
-                            height={403}
-                            alt="Logo de Eratio Café"
-                        />
-                        </a>
+                        <div className={styles.organizarLogoContainer}>
+                            <Image
+                                src="/eratio.png"
+                                width={679}
+                                height={403}
+                                alt="Logo de Eratio Café"
+                            />
+                             <a 
+                                href='https://www.instagram.com/erratio_cafe?igsh=OGxjdTA3ZmJ1MjM0'
+                                target='_blank'
+                                className={styles.organizerLogo}
+                            >
+                                <IconButton>
+                                    <InstagramIcon/>
+                                </IconButton>
+                            </a>
+                        </div>
 
                     </div>
 
@@ -205,14 +223,29 @@ const Page = () => {
                 </div>
 
                 <div className={styles.footerContainer}>
-                    <p onClick={handleOpenDialog1}>FAQ's</p>
+                    <p onClick={handleOpenDialog1}>FAQs</p>
                     <p onClick={handleOpenDialog2}>Contacto</p>
                 </div>
                         
             </div>
 
             <Dialog open={dialog1} onClose={handleCloseDialog1}>
+
                 <DialogTitle> Preguntas Frecuentes</DialogTitle>
+
+                <IconButton
+                    aria-label="close"
+                    onClick={handleCloseDialog1}
+                    sx={(theme) => ({
+                        position: 'absolute',
+                        right: 8,
+                        top: 8,
+                        color: theme.palette.grey[500],
+                    })}
+                    >
+                    <CloseIcon />
+                </IconButton>
+
                 <DialogContent>
 
                     <div className={styles.faqContainer}>
@@ -245,7 +278,7 @@ const Page = () => {
                             </li>
                         
                             <li>
-                                <b>¿Tengo que ver afuerzas el Torneo de Método IKEA?</b><br/>
+                                <b>¿Tengo que ver a fuerzas el Torneo de Método IKEA?</b><br/>
                                 No es necesario. Tendremos stands con degustaciones gratuitas de café, así mismo habrá venta de café en grano, vinilos, postres, cerveza y merch de las marcas participantes.
                             </li>
 
@@ -253,10 +286,25 @@ const Page = () => {
                     </div>
                     
                 </DialogContent>
+
             </Dialog>
 
             <Dialog open={dialog2} onClose={handleCloseDialog2}>
+
                 <DialogTitle> Contacto</DialogTitle>
+
+                <IconButton
+                    aria-label="close"
+                    onClick={handleCloseDialog2}
+                    sx={(theme) => ({
+                        position: 'absolute',
+                        right: 8,
+                        top: 8,
+                        color: theme.palette.grey[500],
+                    })}
+                    >
+                    <CloseIcon />
+                </IconButton>
 
                 <DialogContent>
 
