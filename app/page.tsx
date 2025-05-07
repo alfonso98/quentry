@@ -135,7 +135,7 @@ const Page = () => {
                                 height={292}
                                 alt="Logo de Barbo Café"
                             />
-                            <a 
+                            {/* <a 
                                 href='https://www.instagram.com/barbo.coffee?igsh=MTQyZGwxZ3IzZXpudQ=='
                                 target='_blank'
                                 className={styles.organizerLogo}
@@ -143,7 +143,7 @@ const Page = () => {
                                 <IconButton>
                                     <InstagramIcon/>
                                 </IconButton>
-                            </a>
+                            </a> */}
                         </div>
                         
                         <div className={styles.organizarLogoContainer}>
